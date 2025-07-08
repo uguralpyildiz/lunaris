@@ -147,12 +147,16 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   top: 0;
   left: 0px;
   right: 0px;
-  width: 100%;
-
+  max-width: 1180px;
+  border-radius: 50px;
+  margin: auto;
+  margin-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
   background: #000000cb;
   backdrop-filter: blur(10px);
   z-index: 99; }
-
+  
 .menu-absolute {
   position: absolute;
   right: 15px; }
@@ -549,6 +553,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   .hero h1 {
     font-size: 34px;
     color: #000839; }
+    @media (max-width: 991.98px) {
+      .site-nav {
+ 
+  max-width: 1180px;
+  border-radius: 0px;
+  margin-top: 0;
+}
+    }
     @media (max-width: 991.98px) {
       .hero h1 {
         font-size: 30px; } }
