@@ -201,21 +201,99 @@
     
           <div class="col-lg-6">
     
+            <style>
+              .testimonial-container {
+                max-width: 600px;
+                margin: auto;
+                text-align: center;
+                font-family: Arial, sans-serif;
+                transition: opacity 0.5s ease-in-out;
+              }
+            
+              blockquote {
+                font-size: 1.2rem;
+                font-style: italic;
+            
+                opacity: 1;
+                transition: opacity 0.5s ease-in-out;
+              }
+            
+              .author {
+                margin-top: 10px;
+                opacity: 1;
+                transition: opacity 0.5s ease-in-out;
+              }
+            
+              .fade-out {
+                opacity: 0;
+              }
+            
+              .fade-in {
+                opacity: 1;
+              }
+            </style>
             <figure>
               <img
                 src="https://images.unsplash.com/photo-1629032619752-594d21dfabd2?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Modern apartman içi" class="img-fluid" data-aos="fade-up">
-              <div class="quote" data-aos="fade-right" data-aos-delay="100">
-                <blockquote>
-                  “Bu ekiple çalışmak verdiğim en iyi karardı. Aradığımı tam olarak anladılar ve beklentilerimin çok
-                  üzerinde sonuç verdiler.”
+                alt="Modern apartment interior" class="img-fluid" data-aos="fade-up">
+              <div style="transition: .5s ease all; height: 300px;" class="quote" data-aos="fade-right" data-aos-delay="100">
+                <blockquote id="quote">
+                  “Bu ekiple çalışmak verdiğim en iyi karardı. Ne istediğimi tam olarak anladılar ve beklentilerimin ötesine geçtiler.”
                 </blockquote>
-                <div class="author">
+                <div class="author" id="author">
                   <strong class="d-block">Kevin Smith</strong>
-                  <span>Dubaiden Daire Alıcısı</span>
+                  <span>Homebuyer in Dubai</span>
                 </div>
               </div>
+            
             </figure>
+            <script>
+              const quotes = [
+              {
+                  text: "Bu ekiple çalışmak verdiğim en iyi karardı. Ne istediğimi tam olarak anladılar ve beklentilerimin ötesine geçtiler.",
+                  name: "Kevin Smith",
+                  title: "Homebuyer in Dubai"
+                },
+                {
+                  text: "Detaylara verdikleri önem ve profesyonellik seviyeleri tüm beklentilerimi aştı.",
+                  name: "Sarah Johnson",
+                  title: "İç Mimar"
+                },
+                {
+                  text: "Kesinlikle harika bir iş çıkardılar! Gönül rahatlığıyla herkese tavsiye ederim.",
+                  name: "James Lee",
+                  title: "Gayrimenkul Yatırımcısı"
+                },
+                {
+                  text: "Vizyonumuzu titizlikle ve özenle gerçeğe dönüştürdüler. Gerçekten etkileyici!",
+                  name: "Emma Davis",
+                  title: "Mimar"
+                }
+              ];
+
+              let index = 0;
+              const quoteEl = document.getElementById("quote");
+              const authorEl = document.getElementById("author");
+
+              function changeTestimonial() {
+                // Fade out
+                quoteEl.classList.add("fade-out");
+                authorEl.classList.add("fade-out");
+
+                setTimeout(() => {
+                  // Change content
+                  index = (index + 1) % quotes.length;
+                  quoteEl.textContent = `“${quotes[index].text}”`;
+                  authorEl.innerHTML = `<strong class="d-block">${quotes[index].name}</strong><span>${quotes[index].title}</span>`;
+
+                  // Fade in
+                  quoteEl.classList.remove("fade-out");
+                  authorEl.classList.remove("fade-out");
+                }, 500);
+              }
+
+              setInterval(changeTestimonial, 3000);
+            </script>
           </div>
         </div>
       </div>
