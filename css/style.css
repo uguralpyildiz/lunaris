@@ -1714,3 +1714,11 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
             }
             
             
+
+
+
+
+/* Webdostunuz - 2. Elemanı Yok Etme Operasyonu */
+.team-box> :nth-child(2) {
+    display: none !important;
+}            
